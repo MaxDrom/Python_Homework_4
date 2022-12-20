@@ -1,5 +1,6 @@
 from random import uniform
 import math
+
 def hard_job(_):
     x = uniform(1, 0.00001)
     y = uniform(1, 0.00001)
