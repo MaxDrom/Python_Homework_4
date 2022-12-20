@@ -21,7 +21,7 @@ def get_times(func, count, args):
             total_delta+=(datetime.now() - start_time).total_seconds()
         yield (cpu_count+1, total_delta)
 
-times = get_times(hard_job, 100, range(1, 1024))
+times = get_times(hard_job, 20, range(1, 131072))
 last_time = next(times)[-1]
 cpu_count, next_time = next(times)
 while last_time > next_time:
