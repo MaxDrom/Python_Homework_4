@@ -17,8 +17,7 @@ def get_times(func, count, args):
             pool = Pool(cpu_count)
             start_time = datetime.now()
             pool.map(func, args)
-            total_delta+=(datetime.now() - start_time).total_seconds()**2
-        total_delta = math.sqrt(total_delta)
+            total_delta+=(datetime.now() - start_time).total_seconds()
         yield (cpu_count+1, total_delta)
 
 times = get_times(hard_job, 100, range(1, 1024))
