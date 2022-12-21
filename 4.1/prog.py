@@ -10,7 +10,7 @@ from multiprocessing import Pool
 from datetime import datetime
 
 def get_times(func, count, args):
-    cpu_count =0
+    cpu_count = 0
     while True:
         cpu_count+=1
         total_delta = 0

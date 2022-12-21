@@ -7,7 +7,7 @@ import math
 
 class Sender(Thread):
     def __init__(self, n ,queue: Queue):
-        super().__init__(None)
+        super().__init__()
         self.n = n
         self.queue = queue
     
@@ -19,7 +19,7 @@ class Sender(Thread):
 
 class Receiver(Thread):
     def __init__(self, queue: Queue):
-        super().__init__(None)
+        super().__init__()
         self.queue = queue
     
     def run(self):
