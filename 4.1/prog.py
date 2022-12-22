@@ -1,13 +1,12 @@
 from random import uniform
+from multiprocessing import Pool
+from datetime import datetime
 import math
 
 def hard_job(_):
     x = uniform(1, 0.00001)
     y = uniform(1, 0.00001)
     return math.sqrt(-2*math.log(x))*math.cos(2*math.pi*y)
-
-from multiprocessing import Pool
-from datetime import datetime
 
 def get_times(func, count, args):
     cpu_count = 0
@@ -21,7 +20,7 @@ def get_times(func, count, args):
             total_delta+=(datetime.now() - start_time).total_seconds()
         yield (cpu_count+1, total_delta)
 
-times = get_times(hard_job, 20, range(1, 131072))
+times = get_times(hard_job, 10, range(131072))
 last_time = next(times)[-1]
 cpu_count, next_time = next(times)
 while last_time > next_time:

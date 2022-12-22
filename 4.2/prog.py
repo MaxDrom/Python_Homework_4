@@ -4,7 +4,6 @@ from random import uniform
 from time import sleep
 import math
 
-
 class Sender(Thread):
     def __init__(self, n ,queue: Queue):
         super().__init__()
