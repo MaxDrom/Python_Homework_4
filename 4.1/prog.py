@@ -1,6 +1,6 @@
 from random import uniform
 from multiprocessing import Pool
-from datetime import datetime
+from time import time
 import math
 
 def hard_job(_):
@@ -15,9 +15,9 @@ def get_times(func, count, args):
         total_delta = 0
         for _ in range(count):
             pool = Pool(cpu_count)
-            start_time = datetime.now()
+            start_time = time()
             pool.map(func, args)
-            total_delta+=(datetime.now() - start_time).total_seconds()
+            total_delta+=(time() - start_time)
         yield (cpu_count+1, total_delta)
 
 times = get_times(hard_job, 10, range(131072))
